@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: agriwater
+      MYSQL_USER: agriwater
+      MYSQL_PASSWORD: securepassword
+      MYSQL_ROOT_PASSWORD: secure_root_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # You can later add backend and frontend services here if you wish to run the entire stack via Docker.
+
+volumes:
+  mysql_data:
